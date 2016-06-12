@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'CLLKit_Example' do
-  pod 'CLLKit/CommonTools', :path => '../'
+  pod 'CLLKit', :path => '../'
 
   target 'CLLKit_Tests' do
     inherit! :search_paths
