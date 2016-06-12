@@ -1,6 +1,0 @@
-framework module CLLKit {
-  umbrella header "CLLKit-umbrella.h"
-
-  export *
-  module * { export * }
-}
