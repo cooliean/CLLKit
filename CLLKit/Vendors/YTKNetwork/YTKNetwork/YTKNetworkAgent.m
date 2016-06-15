@@ -65,7 +65,7 @@
     for (id<YTKUrlFilterProtocol> f in filters) {
         detailUrl = [f filterUrl:detailUrl withRequest:request];
     }
-
+    
     NSString *baseUrl;
     if ([request useCDN]) {
         if ([request cdnUrl].length > 0) {
@@ -94,22 +94,22 @@
     NSString *url = [self buildRequestUrl:request];
     id param = request.requestArgument;
     AFConstructingBlock constructingBlock = [request constructingBodyBlock];
-
+    
     if (request.requestSerializerType == YTKRequestSerializerTypeHTTP) {
         _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     } else if (request.requestSerializerType == YTKRequestSerializerTypeJSON) {
         _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     }
-
+    
     _manager.requestSerializer.timeoutInterval = [request requestTimeoutInterval];
-
+    
     // if api need server username and password
     NSArray *authorizationHeaderFieldArray = [request requestAuthorizationHeaderFieldArray];
     if (authorizationHeaderFieldArray != nil) {
         [_manager.requestSerializer setAuthorizationHeaderFieldWithUsername:(NSString *)authorizationHeaderFieldArray.firstObject
                                                                    password:(NSString *)authorizationHeaderFieldArray.lastObject];
     }
-
+    
     // if api need add custom value to HTTPHeaderField
     NSDictionary *headerFieldValueDictionary = [request requestHeaderFieldValueDictionary];
     if (headerFieldValueDictionary != nil) {
@@ -122,7 +122,7 @@
             }
         }
     }
-
+    
     // if api build custom url request
     NSURLRequest *customUrlRequest= [request buildCustomUrlRequest];
     if (customUrlRequest) {
@@ -140,7 +140,7 @@
             if (request.resumableDownloadPath) {
                 // add parameters to URL;
                 NSString *filteredUrl = [YTKNetworkPrivate urlStringWithOriginUrlString:url appendParameters:param];
-
+                
                 NSURLRequest *requestUrl = [NSURLRequest requestWithURL:[NSURL URLWithString:filteredUrl]];
                 AFDownloadRequestOperation *operation = [[AFDownloadRequestOperation alloc] initWithRequest:requestUrl
                                                                                                  targetPath:request.resumableDownloadPath shouldResume:YES];
@@ -165,8 +165,8 @@
                                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                       [self handleRequestResult:operation];
                                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            [self handleRequestResult:operation];
-                        }];
+                                                      [self handleRequestResult:operation];
+                                                  }];
             } else {
                 request.requestOperation = [_manager POST:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
                     [self handleRequestResult:operation];
@@ -203,7 +203,7 @@
             return;
         }
     }
-
+    
     // Set request operation priority
     switch (request.requestPriority) {
         case YTKRequestPriorityHigh:
@@ -217,7 +217,8 @@
             request.requestOperation.queuePriority = NSOperationQueuePriorityNormal;
             break;
     }
-
+    NSLog(@"fadfaf");
+    
     // retain operation
     //YTKLog(@"Add request: %@", NSStringFromClass([request class]));
     YTKLog(@"\n=======start request=======\n\nAdd request: %@\n\nURL: %@\n\nParams：%@\n\n ======= end ======= \n", NSStringFromClass([request class]), url, param);
@@ -278,7 +279,7 @@
             [request toggleAccessoriesDidStopCallBack];
         } else {
             YTKLog(@"Request %@ failed, status code = %ld",
-                     NSStringFromClass([request class]), (long)request.responseStatusCode);
+                   NSStringFromClass([request class]), (long)request.responseStatusCode);
             [request toggleAccessoriesWillStopCallBack];
             [request requestFailedFilter];
             if (request.delegate != nil) {

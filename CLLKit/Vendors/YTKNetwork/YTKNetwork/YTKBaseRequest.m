@@ -81,7 +81,7 @@
             NSString *changeKey;
             
             // 根据映射字典，修改请求参数名称
-            if (mappingPatamsDic) {
+            if (mappingPatamsDic && [mappingPatamsDic valueForKey:originalKey]) {
                 
                 changeKey = [mappingPatamsDic valueForKey:originalKey];
                 
