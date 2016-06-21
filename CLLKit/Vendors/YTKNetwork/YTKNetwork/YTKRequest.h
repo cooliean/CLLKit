@@ -41,6 +41,10 @@
 
 /// 手动将其他请求的JsonResponse写入该请求的缓存
 - (void)saveJsonResponseToCacheFile:(id)jsonResponse;
+/**
+ *  自己加的获取缓存的Bean对象
+ */
+- (id)responseCacheBean;
 
 /// For subclass to overwrite
 - (NSInteger)cacheTimeInSeconds;

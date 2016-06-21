@@ -235,18 +235,21 @@
 
 
 #pragma mark JSON 解析
+-(id)getBeanByClassWithValues:(id)values{
+    if(values == nil){
+        return nil;
+    }
+
+    const char *requestClassName = class_getName([self class]);
+    NSString *responseBeanName = [[NSString stringWithUTF8String:requestClassName] stringByReplacingOccurrencesOfString:@"Request" withString:@"Response"];
+    const char *responseBeanName1 = [responseBeanName UTF8String];
+    id response = ((id (*)(id, SEL,id)) objc_msgSend)(objc_getClass(responseBeanName1), sel_registerName("mj_objectWithKeyValues:"),values);
+    return response;
+}
+
 - (id)responseBean
 {
-    const char *requestClassName = class_getName([self class]);
-    
-    NSString *responseBeanName = [[NSString stringWithUTF8String:requestClassName] stringByReplacingOccurrencesOfString:@"Request" withString:@"Response"];
-    
-    const char *responseBeanName1 = [responseBeanName UTF8String];
-    
-    NSString *values = self.responseString;
-    id response = ((id (*)(id, SEL,id)) objc_msgSend)(objc_getClass(responseBeanName1), sel_registerName("mj_objectWithKeyValues:"),values);
-    
-    return response;
+    return [self getBeanByClassWithValues:self.responseString];
 }
 
 /**

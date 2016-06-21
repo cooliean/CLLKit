@@ -34,6 +34,9 @@ CLL_EXTERN_C_BEGIN
 #define CLLLog(FORMAT, ...) nil
 #endif
 
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+#define TABBAR_H self.tabBarController.tabBar.frame.size.height
 
 #define NS_LOG_USER_DEFAULT() NSLog(@"%@",[[NSUserDefaults standardUserDefaults]dictionaryRepresentation])
 

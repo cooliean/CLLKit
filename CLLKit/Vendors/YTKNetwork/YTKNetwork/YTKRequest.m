@@ -24,7 +24,8 @@
 #import "YTKNetworkConfig.h"
 #import "YTKRequest.h"
 #import "YTKNetworkPrivate.h"
-
+#import <objc/runtime.h>
+#import <objc/message.h>
 @interface YTKRequest()
 
 @property (strong, nonatomic) id cacheJson;
@@ -178,7 +179,7 @@
         [super start];
         return;
     }
-
+    
     _dataFromCache = YES;
     [self requestCompleteFilter];
     YTKRequest *strongSelf = self;
@@ -206,6 +207,8 @@
     }
 }
 
+
+
 - (BOOL)isDataFromCache {
     return _dataFromCache;
 }
@@ -228,8 +231,18 @@
     }
 }
 
-#pragma mark - Network Request Delegate
+/** 自己加的获取缓存的Bean对象 */
+- (id)responseCacheBean {
+    id dataObject = nil;
+    if ([self cacheJson]) {
+        dataObject = [self cacheJson];
+    } else {
+        dataObject = [super responseJSONObject];
+    }
+    return [self getBeanByClassWithValues:dataObject];
+}
 
+#pragma mark - Network Request Delegate
 - (void)requestCompleteFilter {
     [super requestCompleteFilter];
     [self saveJsonResponseToCacheFile:[super responseJSONObject]];

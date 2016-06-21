@@ -13,7 +13,7 @@
     [self setupNavigation:barBackColor textColor:textColor backImage:backImage hiddenBackTitle:NO];
 }
 +(void)setupNavigation:(UIColor *)barBackColor textColor:(UIColor *)textColor backImage:(UIImage *)backImage hiddenBackTitle:(BOOL)bHidden{
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:barBackColor];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTintColor:textColor];
     
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     if(bHidden){
@@ -22,8 +22,9 @@
     
     [[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setBarTintColor:barBackColor];
     [[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}];
+    [[UINavigationBar appearanceWhenContainedIn:[UINavigationController class], nil] setTranslucent:NO];
     
-    
+    [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setBarTintColor:barBackColor];
     [[UINavigationBar appearance] setTintColor:textColor];
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: textColor}];

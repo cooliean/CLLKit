@@ -199,6 +199,14 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 @property (nonatomic, strong, readonly) id responseBean;
 
 /**
+ *  通过Request规定的名字来获取对象
+ *
+ *  @param values 字典(可以是NSDictionary、NSData、NSString)
+ *
+ *  @return id Bean
+ */
+-(id)getBeanByClassWithValues:(id)values;
+/**
  *  忽略的参数列表
  *
  *  @return 忽略的参数列表

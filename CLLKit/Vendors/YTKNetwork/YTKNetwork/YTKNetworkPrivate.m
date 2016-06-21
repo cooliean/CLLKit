@@ -25,12 +25,12 @@
 #import "YTKNetworkPrivate.h"
 
 void YTKLog(NSString *format, ...) {
-//#ifdef DEBUG
+#ifdef DEBUG
     va_list argptr;
     va_start(argptr, format);
     NSLogv(format, argptr);
     va_end(argptr);
-//#endif
+#endif
 }
 
 @implementation YTKNetworkPrivate

@@ -30,7 +30,7 @@ s.source           = { :git => 'https://github.com/cooliean/CLLKit.git', :tag =>
 s.requires_arc = true
 s.libraries = 'z', 'sqlite3'
 s.frameworks = 'UIKit', 'CoreFoundation', 'CoreText', 'CoreGraphics', 'CoreImage', 'QuartzCore', 'ImageIO', 'AssetsLibrary', 'Accelerate', 'MobileCoreServices', 'SystemConfiguration'
-#s.ios.vendored_frameworks = 'Vendor/WebP.framework'
+s.ios.vendored_frameworks = 'CLLKit/YYKit/Vendor/WebP.framework'
 s.ios.deployment_target = '8.0'
 # s.resource_bundles = {
 #   'SVProgressHUD' => ['CLLKit/Vendors/SVProgressHUD/SVProgressHUD.bundle'],
@@ -47,12 +47,13 @@ end
 
 s.subspec 'Core' do |core|
   core.source_files = 'CLLKit/**/*.{h,m}'
-  core.public_header_files = 'CLLKit/**/*.h'
+  #core.public_header_files = 'CLLKit/**/*.h'
   core.dependency 'CLLKit/SVProgressHUD'
   core.dependency 'CLLKit/MJRefresh'
   core.dependency 'CLLKit/SDCycleScrollView'
   core.dependency 'CLLKit/IQKeyboardManager'
   core.dependency 'CLLKit/XLForm'
+  core.dependency 'CLLKit/YYKit'
   #core.dependency 'YTKNetwork', '~> 1.1.0'
   #core.dependency 'MBProgressHUD', '~> 0.9.2'
   #core.dependency 'IQKeyboardManager', '~> 4.0.3'
@@ -67,30 +68,33 @@ s.subspec 'Core' do |core|
 end
 s.subspec 'SVProgressHUD' do |hud|
   hud.source_files = 'SVProgressHUD/SVProgressHUD/*.{h,m}'
-  hud.public_header_files = 'SVProgressHUD/SVProgressHUD/*.h'
+  #hud.public_header_files = 'SVProgressHUD/SVProgressHUD/*.h'
   hud.resources    = 'SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle'
 end
 s.subspec 'MJRefresh' do |mjr|
   mjr.source_files = 'MJRefresh/MJRefresh/**/*.{h,m}'
-  mjr.public_header_files = 'MJRefresh/MJRefresh/**/*.h'
+  #mjr.public_header_files = 'MJRefresh/MJRefresh/**/*.h'
   mjr.resources    = 'MJRefresh/**/*.bundle'
 end
 s.subspec 'SDCycleScrollView' do |sdc|
   sdc.source_files = 'SDCycleScrollView/SDCycleScrollView/Lib/SDCycleScrollView/**/*.{h,m}'
-  sdc.public_header_files = 'SDCycleScrollView/SDCycleScrollView/Lib/SDCycleScrollView/**/*.h'
+  #sdc.public_header_files = 'SDCycleScrollView/SDCycleScrollView/Lib/SDCycleScrollView/**/*.h'
 end
 s.subspec 'IQKeyboardManager' do |iqk|
   iqk.source_files = 'IQKeyboardManager/IQKeyboardManager/**/*.{h,m}'
-  iqk.public_header_files = 'IQKeyboardManager/IQKeyboardManager/**/*.h'
+  #iqk.public_header_files = 'IQKeyboardManager/IQKeyboardManager/**/*.h'
   iqk.resources    = 'IQKeyboardManager/IQKeyboardManager/Resources/*.bundle'
 end
 s.subspec 'XLForm' do |xlf|
   xlf.source_files = 'XLForm/XLForm/**/*.{h,m}'
-  xlf.public_header_files = 'XLForm/XLForm/**/*.h'
+  #xlf.public_header_files = 'XLForm/XLForm/**/*.h'
   xlf.resources    = 'XLForm/XLForm/*.bundle'
 end
-
-non_arc_files = 'CLLKit/Vendors/YYKit/Base/Foundation/NSObject+YYAddForARC.{h,m}', 'CLLKit/Vendors/YYKit/Base/Foundation/NSThread+YYAdd.{h,m}'
+s.subspec 'YYKit' do |yy|
+  yy.source_files = 'YYKit/YYKit/**/*.{h,m}'
+  #yy.public_header_files = 'YYKit/YYKit/**/*.h'
+end
+non_arc_files = 'YYKit/YYKit/Base/Foundation/NSObject+YYAddForARC.{h,m}', 'YYKit/YYKit/Base/Foundation/NSThread+YYAdd.{h,m}'
 s.ios.exclude_files = non_arc_files
 s.subspec 'no-arc' do |sna|
   sna.requires_arc = false
