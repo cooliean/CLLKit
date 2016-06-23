@@ -14,5 +14,5 @@
  *
  *  @return 返回IPV4
  */
-- (NSString *)getIPAddress;
++ (NSString *)getIPAddress;
 @end

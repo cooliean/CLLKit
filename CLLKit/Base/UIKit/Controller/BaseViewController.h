@@ -21,4 +21,5 @@
 -(void)hidenLoadView;
 -(void)showLoadView:(UIColor *)tintColor;
 
+
 @end

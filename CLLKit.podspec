@@ -54,6 +54,8 @@ s.subspec 'Core' do |core|
   core.dependency 'CLLKit/IQKeyboardManager'
   core.dependency 'CLLKit/XLForm'
   core.dependency 'CLLKit/YYKit'
+  core.dependency 'CLLKit/SDWebImage'
+  # core.dependency 'CLLKit/FLNav'
   #core.dependency 'YTKNetwork', '~> 1.1.0'
   #core.dependency 'MBProgressHUD', '~> 0.9.2'
   #core.dependency 'IQKeyboardManager', '~> 4.0.3'
@@ -90,10 +92,21 @@ s.subspec 'XLForm' do |xlf|
   #xlf.public_header_files = 'XLForm/XLForm/**/*.h'
   xlf.resources    = 'XLForm/XLForm/*.bundle'
 end
+s.subspec 'SDWebImage' do |sd|
+  sd.source_files = 'SDWebImage/SDWebImage/{NS,SD,UI}*.{h,m}'
+  sd.exclude_files = 'SDWebImage/SDWebImage/UIImage+WebP.{h,m}'
+  sd.tvos.exclude_files = 'SDWebImage/SDWebImage/MKAnnotationView+WebCache.*'
+end
+# s.subspec 'FLNav' do |fln| #https://github.com/CharlinFeng/CoreNavVC
+#   fln.source_files = 'CoreNavVC/**/*.{h,m,xib}'
+#   fln.resources    = 'CoreNavVC/Lib/Resource/*.bundle'
+#   #yy.public_header_files = 'YYKit/YYKit/**/*.h'
+# end
 s.subspec 'YYKit' do |yy|
   yy.source_files = 'YYKit/YYKit/**/*.{h,m}'
   #yy.public_header_files = 'YYKit/YYKit/**/*.h'
 end
+
 non_arc_files = 'YYKit/YYKit/Base/Foundation/NSObject+YYAddForARC.{h,m}', 'YYKit/YYKit/Base/Foundation/NSThread+YYAdd.{h,m}'
 s.ios.exclude_files = non_arc_files
 s.subspec 'no-arc' do |sna|

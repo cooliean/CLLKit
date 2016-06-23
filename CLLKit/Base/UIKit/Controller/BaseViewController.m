@@ -47,5 +47,4 @@
     [self.view addSubview: self.loadingView];
     self.loadingView.sd_layout.centerXEqualToView(self.view).centerYEqualToView(self.view);
 }
-
 @end

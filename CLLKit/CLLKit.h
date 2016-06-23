@@ -5,8 +5,11 @@
 #import "BaseViewController.h"
 #import "NavUtils.h"
 #import "NetUtils.h"
-
-
+#import "VerticallyAlignedLabel.h"
+#import "NSString+CLLAdd.h"
+#import "UILabel+CLLAdd.h"
+#import "UIButton+CLLAdd.h"
+#import "PlaceholderTextView.h"
 //Vendors
 
 #import "YYKit.h"
@@ -26,6 +29,8 @@
 #import "UIView+SDAutoLayout.h"
 #import "UITableView+SDAutoTableViewCellHeight.h"
 
+//SDWebImage
+#import "UIImageView+WebCache.h"
 
 #import "MXSegmentedPager.h"
 

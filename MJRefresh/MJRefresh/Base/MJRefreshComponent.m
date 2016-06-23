@@ -143,11 +143,13 @@
     static NSBundle *bundle = nil;
     if (bundle == nil) {
         // 获得设备的语言
+        
         NSString *language = [NSLocale preferredLanguages].firstObject;
+        
         // 如果是iOS9以上，去掉后面的设备购买地区比如zh-Hans-US和zh-Hans-CN后面的US和CN
         if ([UIDevice currentDevice].systemVersion.floatValue >= 9.0) {
             NSRange range = [language rangeOfString:@"-" options:NSBackwardsSearch];
-            if (range.location != NSNotFound) {
+            if (range.location != NSNotFound && range.location>2) {
                 language = [language substringToIndex:range.location];
             }
         }
@@ -159,7 +161,6 @@
         if (language.length == 0) {
             language = @"zh-Hans";
         }
-        
         // 先从MJRefresh.bundle中查找资源
         NSBundle *refreshBundle = [NSBundle mj_refreshBundle];
         if ([refreshBundle.localizations containsObject:language]) {
