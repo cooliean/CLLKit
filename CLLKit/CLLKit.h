@@ -31,6 +31,8 @@
 
 //SDWebImage
 #import "UIImageView+WebCache.h"
+#import "SDWebImageDownloader.h"
+
 
 #import "MXSegmentedPager.h"
 

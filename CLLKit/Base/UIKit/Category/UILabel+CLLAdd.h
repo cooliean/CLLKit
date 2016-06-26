@@ -17,7 +17,12 @@
  *  @param lineColor 线条颜色
  */
 -(void)setDeleteLineForLabel:(UIColor *)lineColor;
-
+/**
+ *  获取Label 内容在屏幕中的大小 (单行)
+ *
+ *  @return CGSize
+ */
+-(CGSize)getTitleCGSize;
 
 +(id)getCommonLabel;
 @end

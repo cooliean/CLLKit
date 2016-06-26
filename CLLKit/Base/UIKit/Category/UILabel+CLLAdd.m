@@ -20,6 +20,9 @@
     [self setAttributedText:attri];
 }
 
+-(CGSize)getTitleCGSize{
+    return [self.text sizeWithAttributes:@{NSFontAttributeName:self.font}];
+}
 
 +(id)getCommonLabel{
     UILabel *label = [UILabel new];

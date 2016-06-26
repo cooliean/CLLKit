@@ -120,7 +120,7 @@ YYSYNTH_DUMMY_CLASS(UIDevice_YYAdd)
                         
                     default: break;
                 }
-                if (address) break;
+                //if (address) break;
             }
             addr = addr->ifa_next;
         }
