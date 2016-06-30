@@ -6,6 +6,7 @@
 #import "NavUtils.h"
 #import "NetUtils.h"
 #import "VerticallyAlignedLabel.h"
+#import "NSObject+CLLAdd.h"
 #import "NSString+CLLAdd.h"
 #import "UILabel+CLLAdd.h"
 #import "UIButton+CLLAdd.h"
@@ -46,4 +47,10 @@
 #import "FXBlurView.h"
 
 #import "UIScrollView+EmptyDataSet.h"
+
+#import "HCSStarRatingView.h"
+
+#import "UIAlertView+Blocks.h"
+#import "UIActionSheet+Blocks.h"
+#import "UIAlertController+Blocks.h"
 

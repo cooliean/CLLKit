@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'CLLKit'
-s.version          = '1.0.3'
+s.version          = '1.0.4'
 s.summary          = 'Powerful IOS Extension'
 
 # This description is used to generate tags and improve search results.
@@ -55,6 +55,11 @@ s.subspec 'Core' do |core|
   core.dependency 'CLLKit/XLForm'
   core.dependency 'CLLKit/YYKit'
   core.dependency 'CLLKit/SDWebImage'
+  core.dependency 'CLLKit/HCSStarRatingView'
+  core.dependency 'CLLKit/UIAlertView-Blocks'
+  core.dependency 'CLLKit/UIActionSheet+Blocks'
+  core.dependency 'CLLKit/UIAlertController+Blocks'
+
   # core.dependency 'CLLKit/FLNav'
   #core.dependency 'YTKNetwork', '~> 1.1.0'
   #core.dependency 'MBProgressHUD', '~> 0.9.2'
@@ -96,6 +101,19 @@ s.subspec 'SDWebImage' do |sd|
   sd.source_files = 'SDWebImage/SDWebImage/{NS,SD,UI}*.{h,m}'
   sd.exclude_files = 'SDWebImage/SDWebImage/UIImage+WebP.{h,m}'
   sd.tvos.exclude_files = 'SDWebImage/SDWebImage/MKAnnotationView+WebCache.*'
+end
+s.subspec 'HCSStarRatingView' do |start|
+  start.source_files = 'HCSStarRatingView/HCSStarRatingView/*.{h,m}'
+end
+s.subspec 'UIAlertView-Blocks' do |uialb|
+  uialb.source_files = 'UIAlertView-Blocks/*.{h,m}'
+end
+s.subspec 'UIActionSheet+Blocks' do |uisb|
+  uisb.source_files = 'UIActionSheet+Blocks/*.{h,m}'
+end
+
+s.subspec 'UIAlertController+Blocks' do |uiacont|
+  uiacont.source_files = 'UIAlertController+Blocks/*.{h,m}'
 end
 # s.subspec 'FLNav' do |fln| #https://github.com/CharlinFeng/CoreNavVC
 #   fln.source_files = 'CoreNavVC/**/*.{h,m,xib}'

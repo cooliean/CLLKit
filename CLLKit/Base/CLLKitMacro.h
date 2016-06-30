@@ -47,5 +47,55 @@ CLL_EXTERN_C_BEGIN
 
 #define IS_LANDSCAPE (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
 
+
+
+
+
+/**
+ Synthsize a weak or strong reference.
+ 
+ Example:
+ @strongifycl(self)
+ [self doSomething^{
+    @strongifycl(self)
+    if (!self) return;
+ ...
+ }];
+ 
+ */
+#ifndef weakifycl
+#if DEBUG
+#if __has_feature(objc_arc)
+#define weakifycl(object) autoreleasepool{} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakifycl(object) autoreleasepool{} __block __typeof__(object) block##_##object = object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define weakifycl(object) try{} @finally{} {} __weak __typeof__(object) weak##_##object = object;
+#else
+#define weakifycl(object) try{} @finally{} {} __block __typeof__(object) block##_##object = object;
+#endif
+#endif
+#endif
+
+#ifndef strongifycl
+#if DEBUG
+#if __has_feature(objc_arc)
+#define strongifycl(object) autoreleasepool{} __typeof__(object) object = weak##_##object;
+#else
+#define strongifycl(object) autoreleasepool{} __typeof__(object) object = block##_##object;
+#endif
+#else
+#if __has_feature(objc_arc)
+#define strongifycl(object) try{} @finally{} __typeof__(object) object = weak##_##object;
+#else
+#define strongifycl(object) try{} @finally{} __typeof__(object) object = block##_##object;
+#endif
+#endif
+#endif
+
+
+
 CLL_EXTERN_C_END
 #endif
