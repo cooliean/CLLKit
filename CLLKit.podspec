@@ -57,8 +57,8 @@ s.subspec 'Core' do |core|
   core.dependency 'CLLKit/SDWebImage'
   core.dependency 'CLLKit/HCSStarRatingView'
   core.dependency 'CLLKit/UIAlertView-Blocks'
-  core.dependency 'CLLKit/UIActionSheet+Blocks'
-  core.dependency 'CLLKit/UIAlertController+Blocks'
+  core.dependency 'CLLKit/UIActionSheet-Blocks'
+  core.dependency 'CLLKit/UIAlertController-Blocks'
 
   # core.dependency 'CLLKit/FLNav'
   #core.dependency 'YTKNetwork', '~> 1.1.0'
@@ -108,12 +108,12 @@ end
 s.subspec 'UIAlertView-Blocks' do |uialb|
   uialb.source_files = 'UIAlertView-Blocks/*.{h,m}'
 end
-s.subspec 'UIActionSheet+Blocks' do |uisb|
-  uisb.source_files = 'UIActionSheet+Blocks/*.{h,m}'
+s.subspec 'UIActionSheet-Blocks' do |uisb|
+  uisb.source_files = 'UIActionSheet-Blocks/*.{h,m}'
 end
 
-s.subspec 'UIAlertController+Blocks' do |uiacont|
-  uiacont.source_files = 'UIAlertController+Blocks/*.{h,m}'
+s.subspec 'UIAlertController-Blocks' do |uiacont|
+  uiacont.source_files = 'UIAlertController-Blocks/*.{h,m}'
 end
 # s.subspec 'FLNav' do |fln| #https://github.com/CharlinFeng/CoreNavVC
 #   fln.source_files = 'CoreNavVC/**/*.{h,m,xib}'
