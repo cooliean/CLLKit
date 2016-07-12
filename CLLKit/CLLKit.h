@@ -10,6 +10,7 @@
 #import "NSString+CLLAdd.h"
 #import "UILabel+CLLAdd.h"
 #import "UIButton+CLLAdd.h"
+#import "NSDate+CLLAdd.h"
 #import "PlaceholderTextView.h"
 //Vendors
 
@@ -37,6 +38,7 @@
 
 #import "MXSegmentedPager.h"
 
+#import "NSDate+TimeAgo.h"
 
 #import "MJRefresh.h"
 #import "MJExtension.h"

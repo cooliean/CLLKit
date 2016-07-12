@@ -59,6 +59,7 @@ s.subspec 'Core' do |core|
   core.dependency 'CLLKit/UIAlertView-Blocks'
   core.dependency 'CLLKit/UIActionSheet-Blocks'
   core.dependency 'CLLKit/UIAlertController-Blocks'
+  core.dependency 'CLLKit/TimeAgo'
 
   # core.dependency 'CLLKit/FLNav'
   #core.dependency 'YTKNetwork', '~> 1.1.0'
@@ -91,6 +92,10 @@ s.subspec 'IQKeyboardManager' do |iqk|
   iqk.source_files = 'IQKeyboardManager/IQKeyboardManager/**/*.{h,m}'
   #iqk.public_header_files = 'IQKeyboardManager/IQKeyboardManager/**/*.h'
   iqk.resources    = 'IQKeyboardManager/IQKeyboardManager/Resources/*.bundle'
+end
+s.subspec 'TimeAgo' do |tago|
+  tago.source_files = 'NSDate-TimeAgo/*.{h,m}'
+  tago.resources    = 'NSDate-TimeAgo/*.bundle'
 end
 s.subspec 'XLForm' do |xlf|
   xlf.source_files = 'XLForm/XLForm/**/*.{h,m}'
