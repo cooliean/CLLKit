@@ -352,6 +352,68 @@
 }
 
 
-
++(NSString *)formatFloat:(CGFloat)f placeHolder:(NSString *)holder{
+    NSString *str = nil;
+    if (fmodf(f, 1)==0) {
+        str = [NSString stringWithFormat:@"%@%.0f",holder,f];
+    } else if (fmodf(f*10, 1)==0) {
+        str = [NSString stringWithFormat:@"%@%.1f",holder,f];
+    } else if (fmodf(f*100, 1)==0) {
+        str = [NSString stringWithFormat:@"%@%.2f",holder,f];
+    } else {
+        str = [NSString stringWithFormat:@"%@%.3f",holder,f];
+    }
+    return str;
+}
++(NSString *)URLEncodedString: (NSString *) input
+{
+    NSString*
+    outputStr = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                             
+                                                                             NULL, /* allocator */
+                                                                             
+                                                                             (__bridge CFStringRef)input,
+                                                                             
+                                                                             NULL, /* charactersToLeaveUnescaped */
+                                                                             
+                                                                             (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                             
+                                                                             kCFStringEncodingUTF8);
+    
+    
+    return
+    outputStr;
+}
++(NSString *)URLDecodedString: (NSString *) input
+{
+    
+    
+    
+    NSMutableString *outputStr = [NSMutableString stringWithString:input];
+    [outputStr replaceOccurrencesOfString:@"+"
+                               withString:@" "
+                                  options:NSLiteralSearch
+                                    range:NSMakeRange(0,
+                                                      [outputStr length])];
+    
+    return [outputStr stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+//-(NSString *)URLEncodedString:(NSString *)str
+//{
+//    NSString *encodedString = (NSString *)
+//    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+//                                                              (CFStringRef)str,
+//                                                              NULL,
+//                                                              (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+//                                                              kCFStringEncodingUTF8));
+//    
+//    return encodedString;
+//}
+//+(NSString *)URLDecodedString:(NSString *)str
+//{
+//    NSString *decodedString=(__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL, (__bridge CFStringRef)str, CFSTR(""), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+//    
+//    return decodedString;
+//}
 
 @end

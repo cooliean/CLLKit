@@ -17,6 +17,7 @@
 }
 
 +(NSString *)timeAgo:(NSString *)dateString{
+    dateString = [dateString stringByReplacingOccurrencesOfString:@".0" withString:@""];
     return [[[self class] dateByString:dateString format:@"yyyy-MM-dd HH:mm:ss"] timeAgo];
 }
 @end

@@ -56,3 +56,7 @@
 #import "UIActionSheet+Blocks.h"
 #import "UIAlertController+Blocks.h"
 
+//WebViewProgress
+#import "YHWebViewProgress.h"
+#import "YHWebViewProgressView.h"
+

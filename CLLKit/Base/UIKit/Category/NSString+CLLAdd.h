@@ -109,4 +109,10 @@
 + (NSString *)randomStringByLength:(NSUInteger)length;
 
 
++(NSString *)formatFloat:(CGFloat)f placeHolder:(NSString *)holder;
+
++(NSString *)URLEncodedString: (NSString *) input;
+
++(NSString *)URLDecodedString: (NSString *) input;
+
 @end
