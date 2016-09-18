@@ -219,7 +219,14 @@
     }
     // retain operation
     //YTKLog(@"Add request: %@", NSStringFromClass([request class]));
-    YTKLog(@"\n=======start request=======\n\nAdd request: %@\n\nURL: %@\n\nParams：%@\n\n ======= end ======= \n", NSStringFromClass([request class]), url, param);
+    
+    
+    NSString *logString = [NSString stringWithFormat:@"\n=======start request=======\n\nAdd request: %@\n\nURL: %@\n\nParams：%@\n\n ======= end ======= \n", NSStringFromClass([request class]), url, param];
+    if(logString.length > 500){
+        logString = [logString substringToIndex:500];
+    }
+    //YTKLog(@"\n=======start request=======\n\nAdd request: %@\n\nURL: %@\n\nParams：%@\n\n ======= end ======= \n", NSStringFromClass([request class]), url, param);
+    YTKLog(@"%@",logString);
     [self addOperation:request];
 }
 

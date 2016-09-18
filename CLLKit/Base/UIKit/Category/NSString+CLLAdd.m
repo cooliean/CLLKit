@@ -361,7 +361,7 @@
     } else if (fmodf(f*100, 1)==0) {
         str = [NSString stringWithFormat:@"%@%.2f",holder,f];
     } else {
-        str = [NSString stringWithFormat:@"%@%.3f",holder,f];
+        str = [NSString stringWithFormat:@"%@%.2f",holder,f];
     }
     return str;
 }

@@ -68,7 +68,12 @@ static NSString * const kTextKey = @"text";
     _placeholderView.contentInset = self.contentInset;
     _placeholderView.contentOffset = self.contentOffset;
     _placeholderView.textContainerInset = self.textContainerInset;
-    _placeholderView.textColor = [UIColor lightGrayColor];
+    if(self.placeholderColor==nil){
+        _placeholderView.textColor = [UIColor lightGrayColor];
+    }else{
+        _placeholderView.textColor = self.placeholderColor;
+    }
+    
     _placeholderView.backgroundColor = [UIColor clearColor];
     [self addSubview:_placeholderView];
     
@@ -96,6 +101,10 @@ static NSString * const kTextKey = @"text";
     _placeholderView.hidden = [self hasText];
 }
 
+-(void)setPlaceholderColor:(UIColor *)placeholderColor{
+    _placeholderColor = placeholderColor;
+    _placeholderView.textColor = self.placeholderColor;
+}
 
 
 #pragma mark - setter

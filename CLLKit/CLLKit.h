@@ -10,6 +10,7 @@
 #import "NSString+CLLAdd.h"
 #import "UILabel+CLLAdd.h"
 #import "UIButton+CLLAdd.h"
+#import "UIImage+CLLAdd.h"
 #import "NSDate+CLLAdd.h"
 #import "PlaceholderTextView.h"
 //Vendors
