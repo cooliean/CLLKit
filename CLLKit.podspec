@@ -106,7 +106,7 @@ end
 s.subspec 'SDWebImage' do |sd|
   sd.source_files = 'SDWebImage/SDWebImage/{NS,SD,UI}*.{h,m}'
   sd.exclude_files = 'SDWebImage/SDWebImage/UIImage+WebP.{h,m}'
-  sd.tvos.exclude_files = 'SDWebImage/SDWebImage/MKAnnotationView+WebCache.*'
+  #sd.tvos.exclude_files = 'SDWebImage/SDWebImage/MKAnnotationView+WebCache.*'
 end
 s.subspec 'HCSStarRatingView' do |start|
   start.source_files = 'HCSStarRatingView/HCSStarRatingView/*.{h,m}'

@@ -1,12 +1,12 @@
 #import <Foundation/Foundation.h>
 
-
 #import "CLLKitMacro.h"
 #import "BaseViewController.h"
 #import "NavUtils.h"
 #import "NetUtils.h"
 #import "VerticallyAlignedLabel.h"
 #import "NSObject+CLLAdd.h"
+#import "UITextField+CLLAdd.h"
 #import "NSString+CLLAdd.h"
 #import "UILabel+CLLAdd.h"
 #import "UIButton+CLLAdd.h"
@@ -37,7 +37,6 @@
 #import "SDWebImageDownloader.h"
 
 
-#import "MXSegmentedPager.h"
 
 #import "NSDate+TimeAgo.h"
 

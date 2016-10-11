@@ -19,4 +19,14 @@
 + (NSString *)encodeToBase64String:(UIImage *)image;
 
 + (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
+
+
+/**
+ 通过颜色来创建图片
+
+ @param color 图片颜色
+
+ @return {UIImage} 一个点位大小的图片
+ */
++ (UIImage *)createImageWithColor: (UIColor*) color;
 @end

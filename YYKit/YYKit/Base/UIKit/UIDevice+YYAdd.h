@@ -132,7 +132,7 @@ typedef NS_OPTIONS(NSUInteger, YYNetworkTrafficType) {
 /// @name Memory Information
 ///=============================================================================
 
-/// Total physical memory in byte([number floatValue]/1024/1024). (-1 when error occurs)
+/// Total physical memory in byte. (-1 when error occurs)
 @property (nonatomic, readonly) int64_t memoryTotal;
 
 /// Used (active + inactive + wired) memory in byte. (-1 when error occurs)

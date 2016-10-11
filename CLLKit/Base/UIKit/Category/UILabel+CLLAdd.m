@@ -24,14 +24,19 @@
     return [self.text sizeWithAttributes:@{NSFontAttributeName:self.font}];
 }
 
-+(id)getCommonLabel{
++(id)getCommonLabel:(UIFont *)font{
     UILabel *label = [UILabel new];
     label.backgroundColor = [UIColor clearColor];
     label.textColor = [UIColor blackColor];
     label.adjustsFontSizeToFitWidth = NO;
     label.textAlignment = NSTextAlignmentLeft;
-    label.font = [UIFont systemFontOfSize:16.0f];
+    label.font = font;
     return label;
+}
+
+
++(id)getCommonLabel{
+    return [[self class] getCommonLabel:[UIFont systemFontOfSize:16.0f]];
 }
 
 

@@ -25,4 +25,7 @@
 -(CGSize)getTitleCGSize;
 
 +(id)getCommonLabel;
+
++(id)getCommonLabel:(UIFont *)font;
+
 @end
